@@ -1,5 +1,4 @@
 ---
-import defaultImage from '../../public/default.jpeg';
 
 interface Props {
 	title: string;
@@ -14,7 +13,7 @@ const { href, title, description , tech, heroImage} = Astro.props;
 ---
 <div class="card w-full md:w-96 bg-base-100 shadow-xl chat-image highlight">
 	<figure>
-		{heroImage ? <img src={heroImage} alt="" /> : <img src="../../public/default.jpeg" alt="" />}
+		{heroImage ? <img src={heroImage} alt="" /> : <img src="/default.jpeg" alt="" />}
 	</figure>
 	<div class="card-body">
 		<a href={href}>
