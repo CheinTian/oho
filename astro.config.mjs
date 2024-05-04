@@ -6,7 +6,7 @@ import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
 export default defineConfig({
-    site: 'https://example.com',
+    site: 'https://oho.maxt.info',
     integrations: [customToc(),mdx(
     {
         gfm: false,
