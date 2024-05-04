@@ -1,0 +1,33 @@
+---
+title: "second page"
+tags: ['first', 'second', 'third']
+description: 'Lorem ipsum dolor sit amet'
+pubDate: 2025-01-01
+
+---
+
+# Astro Starter Kit: Basics 1
+
+👏👏👏👏
+
+## basic 2
+
+```sh
+npm create astro@latest -- --template basics
+```
+
+# Title 1
+
+## Title 2.1
+
+Hello 2.1
+
+## Title 2.2
+
+Hello 2.2
+
+## Title 2.3
+
+Hello 2.3
+
+# Title 3 

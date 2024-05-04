@@ -1,0 +1,43 @@
+---
+import defaultImage from '../../public/default.jpeg';
+
+interface Props {
+	title: string;
+	description: string;
+	href: string;
+	tech: Array<string>;
+	heroImage?: string
+}
+
+const { href, title, description , tech, heroImage} = Astro.props;
+
+---
+<div class="card w-full md:w-96 bg-base-100 shadow-xl chat-image highlight">
+	<figure>
+		{heroImage ? <img src={heroImage} alt="" /> : <img src="../../public/default.jpeg" alt="" />}
+	</figure>
+	<div class="card-body">
+		<a href={href}>
+			<h2 class="card-title">{title}</h2>
+			<p class="md:truncate">{description}</p>
+			<div class="grid grid-flow-col gap-2 justify-start">
+				{
+					tech.map(
+						(t, i) => {
+							if (i < 5) {
+								return (
+									<span class="badge badge-xs md:badge-lg badge-primary">{t}</span>
+								)
+							} else if (i == 5) {
+								return (
+									<span class="badge badge-xs md:badge-lg badge-primary">...</span>
+								)
+							}
+
+						}
+					)
+				}
+		</div>
+		</a>
+	</div>
+</div>

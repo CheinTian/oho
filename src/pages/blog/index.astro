@@ -1,0 +1,72 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
+import { getCollection } from 'astro:content';
+import FormattedDate from '../../components/FormattedDate.astro';
+
+const posts = (await getCollection('blog')).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+
+---
+
+<!doctype html>
+<html data-theme="cupcake">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<style>
+			main {
+			}
+			.title {
+				margin: 0;
+				color: rgb(var(--black));
+				line-height: 1;
+			}
+			.date {
+				margin: 0;
+				color: rgb(var(--gray));
+			}
+
+		</style>
+	</head>
+	<body>
+		<Header class="flex justify-center items-center"/>
+
+		<main class="pt-32">
+
+			<div>
+				<table class="table table-lg">
+					<tbody>
+					{
+						posts.map((post) => (
+
+							<tr class="border-none">
+								<td class="highlight rounded-2xl">
+									<a href=`blog/${post.slug}`>
+										<div>
+											<h3 class="title text-xs md:text-xl sm:text-sm">{post.data.title}</h3>
+											{
+												post.data.tags?.map((tag) => (
+													<span class="badge badge-outline badge-sm mr-2 mt-2">{tag}</span>
+												))
+											}
+											<span class="date text-xs float-right hidden sm:inline">
+												<FormattedDate date={post.data.pubDate} />
+											</span>
+										</div>
+									</a>
+
+								</td>
+							</tr>
+						))
+					}
+					</tbody>
+				</table>
+			</div>
+		</main>
+		<Footer />
+	</body>
+
+</html>
