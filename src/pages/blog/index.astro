@@ -44,7 +44,7 @@ const posts = (await getCollection('blog')).sort(
 
 							<tr class="border-none">
 								<td class="highlight rounded-2xl">
-									<a href=`blog/${post.slug}`>
+									<a href=`/blog/${post.slug}`>
 										<div>
 											<h3 class="title text-xs md:text-xl sm:text-sm">{post.data.title}</h3>
 											{
