@@ -10,70 +10,72 @@ type Props = CollectionEntry<'blog'>['data'];
 const { title, description, pubDate, updatedDate} = Astro.props;
 ---
 
-<html  >
-<head>
-    <BaseHead title={title} description={description} />
-    <link href="/themes/prism.css" rel="stylesheet"/>
-    <script src="../../public/scripts/prism.js"></script>
-    <style>
-        main {
-            width: calc(100% - 2em);
-            max-width: 100%;
-            margin: 0;
-        }
-        .hero-image {
-            width: 100%;
-        }
-        .hero-image img {
-            display: block;
-            margin: 0 auto;
-            border-radius: 12px;
-            box-shadow: var(--box-shadow);
-        }
-        .title {
-            margin-bottom: 1em;
-            padding: 1em 0;
-            text-align: center;
-            line-height: 1;
-        }
-        .title h1 {
-            margin: 0 0 0.5em 0;
-        }
-        .date {
-            margin-bottom: 0.5em;
-            color: rgb(var(--gray));
-        }
-        .last-updated-on {
-            font-style: italic;
-        }
-    </style>
-</head>
+<html>
+    <head>
+        <BaseHead title={title} description={description} />
+        <link href="/themes/prism.css" rel="stylesheet"/>
+        <script src="../../public/scripts/prism.js"></script>
+        <script src="../../public/scripts/motion/scroll.js"></script>
+        <style>
+            main {
+                width: calc(100% - 2em);
+                max-width: 100%;
+                margin: 0;
+            }
+            .hero-image {
+                width: 100%;
+            }
+            .hero-image img {
+                display: block;
+                margin: 0 auto;
+                border-radius: 12px;
+                box-shadow: var(--box-shadow);
+            }
+            .title {
+                margin-bottom: 1em;
+                padding: 1em 0;
+                text-align: center;
+                line-height: 1;
+            }
+            .title h1 {
+                margin: 0 0 0.5em 0;
+            }
+            .date {
+                margin-bottom: 0.5em;
+                color: rgb(var(--gray));
+            }
+            .last-updated-on {
+                font-style: italic;
+            }
+        </style>
+    </head>
 
-<body class="line-numbers">
-<Header />
-<main class="pt-16">
-    <article>
-        <div class="lg:w-4/6 m-auto">
-            <div class="title">
-                <h1>{title}</h1>
-                <div class="date mb-2 text-sm">
-                    <FormattedDate date={pubDate} />
-                    {
-                        updatedDate && (
-                            <div class="last-updated-on">
-                                最近更新于： <FormattedDate date={updatedDate} />
-                            </div>
-                        )
-                    }
+    <body class="line-numbers">
+        <div class="progress-bar"></div>
+        <Header />
+        <main class="pt-16">
+            <article>
+                <div class="lg:w-4/6 m-auto">
+                    <div class="title">
+                        <h1>{title}</h1>
+                        <div class="date mb-2 text-sm">
+                            <FormattedDate date={pubDate} />
+                            {
+                                updatedDate && (
+                                    <div class="last-updated-on">
+                                        最近更新于： <FormattedDate date={updatedDate} />
+                                    </div>
+                                )
+                            }
+                        </div>
+
+                        <hr />
+                    </div>
+                    <slot />
                 </div>
-
-                <hr />
-            </div>
-            <slot />
-        </div>
-    </article>
-</main>
-<Footer />
-</body>
+            </article>
+        </main>
+        <Footer />
+    </body>
 </html>
 

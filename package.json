@@ -19,6 +19,7 @@
     "@shikijs/transformers": "^1.5.2",
     "astro": "^4.8.2",
     "astro-custom-toc": "^1.1.11",
+    "motion": "^10.17.0",
     "rehype-autolink-headings": "^7.1.0",
     "rehype-slug": "^6.0.0",
     "remark-toc": "^9.0.0",
