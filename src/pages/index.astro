@@ -4,11 +4,12 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 import Social from "../components/Social.astro";
+import AstroHeader from '../components/Header.astro'
 
 ---
 
 <!doctype html>
-<html data-theme="cupcake">
+<html  >
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 		<style>
@@ -19,9 +20,9 @@ import Social from "../components/Social.astro";
 	</head>
 	<body>
 		<div class="flex justify-center items-center flex-col min-h-screen">
-			<span class="loading loading-infinity loading-2xl"></span>
+			<span class="loading loading-infinity loading-2xl text-primary"></span>
 
-			<p id="bio" class="text-center text-lg pb-5 tracking-tighter underline">
+			<p id="bio" class="text-center text-lg pb-5 tracking-tighter underline text-accent">
 				Work Hard in silence, let your success be your noise.
 			</p>
 
@@ -32,7 +33,7 @@ import Social from "../components/Social.astro";
 			</div>
 
 			<p class="text-center text-xl text-gray-500 pt-2">
-				<span class="text-primary">&lt;Developer /&gt;</span>
+				<span class="text-primary tracking-in-expand">&lt;Developer /&gt;</span>
 			</p>
 
 			<div class="grid grid-flow-col gap-2 mt-5">

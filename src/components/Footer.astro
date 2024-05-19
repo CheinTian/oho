@@ -3,7 +3,7 @@ import Social from "./Social.astro";
 const today = new Date();
 ---
 
-<footer>
+<footer class="bg-base-200 pb-0">
 	&copy; {today.getFullYear()} Chein Tian. All rights reserved.
 	<div class="social-links">
 		<Social />
@@ -12,7 +12,7 @@ const today = new Date();
 <style>
 	footer {
 		padding: 2em 1em 6em 1em;
-		background: linear-gradient(var(--gray-gradient)) no-repeat;
+		//background: linear-gradient(var(--gray-gradient)) no-repeat;
 		color: rgb(var(--gray));
 		text-align: center;
 	}

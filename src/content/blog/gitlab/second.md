@@ -12,8 +12,40 @@ pubDate: 2025-01-01
 
 ## basic 2
 
-```sh
+```sh 1
 npm create astro@latest -- --template basics
+```
+sdf
+
+```go
+func main() {
+    Println!("Welcome to")
+}
+
+```
+
+test 
+
+```ts
+console.log('hewwo') // [!code --]
+console.log('hello') // [!code ++]
+console.log('goodbye')
+```
+
+test
+
+```ts
+console.log('Not highlighted')
+console.log('Highlighted') // [!code highlight]
+console.log('Not highlighted')
+```
+
+test
+
+```js /Hello/
+const msg = 'Hello World'
+console.log(msg)
+console.log(msg) // prints Hello World
 ```
 
 # Title 1

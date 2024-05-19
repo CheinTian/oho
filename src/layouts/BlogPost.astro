@@ -10,9 +10,12 @@ type Props = CollectionEntry<'blog'>['data'];
 const { title, description, pubDate, updatedDate} = Astro.props;
 ---
 
-<html data-theme="cupcake">
+<html>
 	<head>
 		<BaseHead title={title} description={description} />
+		<link href="/themes/prism.css" rel="stylesheet"/>
+		<script src="../../public/scripts/prism.js"></script>
+		<script src="../../public/scripts/motion/scroll.js"></script>
 		<style>
 			main {
 				width: calc(100% - 2em);
@@ -37,7 +40,8 @@ const { title, description, pubDate, updatedDate} = Astro.props;
 		</style>
 	</head>
 
-	<body>
+	<body class="line-numbers">
+		<div class="progress-bar"></div>
 		<Header />
 		<main class="pt-16">
 			<article>

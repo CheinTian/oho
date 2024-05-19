@@ -3,6 +3,11 @@ import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import customToc from "astro-custom-toc";
 import tailwind from "@astrojs/tailwind";
+import { rehypeHeadingIds } from '@astrojs/markdown-remark';
+import rehypeSlug from 'rehype-slug';
+import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+import remarkToc from "remark-toc";
+
 
 // https://astro.build/config
 export default defineConfig({
@@ -15,4 +20,20 @@ export default defineConfig({
         rehypePlugins: [],
     }
     ), sitemap(), tailwind()],
+    markdown: {
+        syntaxHighlight: 'prism',
+        remarkPlugins: [
+          [remarkToc, { heading: "contents"}]
+        ],
+        rehypePlugins: [
+            rehypeHeadingIds,
+            rehypeSlug,
+            [
+                rehypeAutolinkHeadings,
+                {
+                    behavior: 'wrap',
+                },
+            ],
+        ]
+    },
 });

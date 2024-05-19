@@ -1,7 +1,18 @@
 ---
 
 ---
+<script>
+    import { animate, stagger } from "motion"
 
+    animate(
+        ".social-effect",
+        {
+            opacity: 1,
+            transform: "rotate(360deg)",
+        },
+        { delay: stagger(0.1, { from: "last"}) } // 0.2, 0.1, 0
+    )
+</script>
 <div class="flex flex-row mt-5 gap-3 w-full justify-center">
     <a href="https://twitter.com/cheintian" target="_blank">
         <span class="sr-only">Follow me on Twitter</span>
@@ -22,7 +33,7 @@
     <a href="https://github.com/cheintian" target="_blank">
         <span class="sr-only">Go to GitHub repo</span>
         <?xml version="1.0" encoding="utf-8"?>
-        <svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+        <svg class="social-effect" width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
             <defs>
                 <path d="M32 0L32 0L32 32L0 32L0 0L32 0Z" id="path_1" />
                 <clipPath id="clip_1">
@@ -42,7 +53,7 @@
     <a href="https://jihulab.com/cltian" target="_blank">
         <span class="sr-only">Go to GitLab repo</span>
         <?xml version="1.0" encoding="utf-8"?>
-        <svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+        <svg class="social-effect" width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
             <defs>
                 <path d="M32 0L32 0L32 32L0 32L0 0L32 0Z" id="path_1" />
                 <clipPath id="clip_1">
@@ -64,7 +75,7 @@
     <a href="https://www.youtube.com/@maxtian4559" target="_blank">
         <span class="sr-only">Go to YouTube</span>
         <?xml version="1.0" encoding="utf-8"?>
-        <svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+        <svg class="social-effect" width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
             <defs>
                 <path d="M32 0L32 0L32 32L0 32L0 0L32 0Z" id="path_1" />
                 <clipPath id="clip_1">
@@ -81,7 +92,7 @@
     <a href="https://app.daily.dev/maxt" target="_blank">
         <span class="sr-only">Go to Daily</span>
         <?xml version="1.0" encoding="utf-8"?>
-        <svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+        <svg class="social-effect" width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
             <defs>
                 <linearGradient gradientUnits="objectBoundingBox" x1="0" y1="0" x2="0.1953125" y2="0" id="gradient_1">
                     <stop offset="0%" stop-color="#C13DF2" />
@@ -110,7 +121,7 @@
     <a href="https://telegram.org/" target="_blank">
         <span class="sr-only">Telegram</span>
         <?xml version="1.0" encoding="utf-8"?>
-        <svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+        <svg class="social-effect" width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
             <defs>
                 <path d="M32 0L32 0L32 32L0 32L0 0L32 0Z" id="path_1" />
                 <clipPath id="clip_1">
@@ -134,7 +145,7 @@
     <a href="https://discord.com/users/872647574048354334" target="_blank">
         <span class="sr-only">Go to Discord</span>
         <?xml version="1.0" encoding="utf-8"?>
-        <svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+        <svg class="social-effect" width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
             <defs>
                 <path d="M32 0L32 0L32 32L0 32L0 0L32 0Z" id="path_1" />
                 <clipPath id="clip_1">

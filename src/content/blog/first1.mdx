@@ -1,29 +1,107 @@
 ---
-title: "First page"
-tags: ["gitlab", "k8s"]
-description: 'Lorem ipsum dolor sit amet'
+title: "Golang channel杂记"
+tags: ["golang", "channel"]
+description: 'channel 杂记'
 pubDate: '2024-05-01'
 ---
 
-# Astro Starter Kit: Basics
+## Channel
 
-## basic
-```sh
-npm create astro@latest -- --template basics
+单纯地将函数并发执行是没有意义的。函数与函数间需要交换数据才能体现并发执行函数的意义。
+
+Go语言的并发模型是CSP，提倡通过通信共享内存而不是通过共享内存而实现通信。
+
+
+
+channel是goroutine之前的连接。channel是可以让一个goroutine发送特定值到另一个goroutine的通信机制。
+
+
+
+Go语言中的通道（channel）是一种特殊的类型（chan)。总是遵循***先入先出***的规则。
+
+```go
+var b chan int // 需要指定通道中元素的类型
 ```
 
-# Title 2
+通道必须使用make函数初始化才能使用！
 
-## Title 2.1
+通道是**引用类型**，空值是`nil`
 
-Hello 2.1
 
-## Title 2.2
 
-Hello 2.2
+### channel的操作
 
-## Title 2.3
 
-Hello 2.3
 
-# Title 3
+#### 发送
+
+```go
+// <-
+ch1 <- 1
+```
+
+#### 接收
+
+```go
+// <-
+<- ch1
+```
+
+#### 关闭
+
+```go
+close(ch1)
+```
+
+
+
+```go
+package main
+
+import (
+	"fmt"
+	"sync"
+)
+
+var wg sync.WaitGroup
+
+func main() {
+	ch1 := make(chan int, 100)
+	ch2 := make(chan int, 100)
+
+	go func() {
+		defer wg.Done()
+		for i := 0; i < 100; i++ {
+			ch1 <- i
+		}
+		close(ch1)
+	}()
+
+	go func() {
+		defer wg.Done()
+
+		for {
+			x, ok := <- ch1
+			if !ok {
+				break
+			}
+			ch2 <- x * x
+		}
+		close(ch2)
+	}()
+
+	wg.Add(2)
+
+	for {
+		y, ok := <- ch2
+		if !ok {
+			break
+		}
+		fmt.Println("result", y)
+	}
+	close(ch2)
+
+	wg.Wait()
+}
+```
+
