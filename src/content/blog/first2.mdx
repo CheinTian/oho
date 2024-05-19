@@ -1,29 +1,301 @@
 ---
-title: "First page"
-tags: ["gitlab", "k8s"]
-description: 'Lorem ipsum dolor sit amet'
+title: "Golang 入门杂记"
+tags: ["golang"]
+description: 'Golang 小计'
 pubDate: '2024-05-01'
+updatedDate: '2024-05-05'
 ---
 
-# Astro Starter Kit: Basics
+## 变量的定义和使用
 
-## basic
-```sh
-npm create astro@latest -- --template basics
+```go
+// 声明和定义
+// var 变量名 数据类型
+// 布尔类型 整型 浮点型 字符型 字符串类型
+// bool int float64
+var a int	// 如果没有初始值，默认值为0
+a=10
+
+// 自动推导类型,根据赋值为变量声明类型，可以是表达式
+b := 3.1415926
+c := 3.1415 * 8
+
+// 不同的数据类型是不可以进行计算，需要使用类型转换
+
 ```
 
-# Title 2
+## 数组
 
-## Title 2.1
+```
+## 声明数组
+```
 
-Hello 2.1
 
-## Title 2.2
 
-Hello 2.2
+## 多重赋值
 
-## Title 2.3
+```go
+a,b,c,d := 10,20,30,40
 
-Hello 2.3
+// 交换赋值
+a,b = b,a
+```
 
-# Title 3
+## 占位符
+
+```GO
+fmt.printf("%d", a)
+fmt.printf("%f", b)
+```
+
+## 枚举
+
+```go
+//
+package main
+import "fmt"
+
+func main(){
+	const(
+		a=iota
+		b,c=iota,iota
+		d,e
+	)
+	fmt.Println(a)
+	fmt.Println(b)
+	fmt.Println(c)
+	fmt.Println(d)
+ 	fmt.Println(e)
+}
+```
+
+## 运算
+
+```go
+// 运算符
+// / % * + -
+// ++ 后自增，没有前自增 a=0; a++
+// -- 后自减，没有前自减 a=0; a--
+package main
+
+import "fmt"
+
+func main(
+  // 整型数据相除结果为整型
+  a:=10
+  b:=20
+  c:=a/b
+  fmt.Println(c)
+)
+
+```
+
+## 类型转换
+
+```go
+package main
+import "fmt"
+func main{
+  a:=10
+  b:=3.14
+  c:=float64(a)*b
+  fmt.Println(c)
+}
+```
+
+## 赋值运算
+
+```go
+// = += -= *= /= %=
+```
+
+## 关系运算符
+
+```go
+// == != > < >= <=
+```
+
+## 逻辑运算符
+
+```go
+// ! && ||
+```
+
+## 其它运算符
+
+```go
+// & 取地址运算符 &a 变量a的地址
+// * 取值运算符
+package main
+import "fmt"
+func main{
+
+}
+```
+
+## IF
+
+```go
+package main
+import "fmt"
+func main{
+  if score >700{
+    fmt.Println("清华")
+  }else{
+    fmt.Println("回家")
+  }
+}
+```
+
+## Switch
+
+```go
+// 分支语句
+package main
+import "fmt"
+func main{
+  switch var1 {
+    case val1:
+        ...
+    case val2:
+        ...
+    default:
+        ...
+}
+}
+```
+
+## For
+
+```Go
+package main
+import "fmt"
+func main{
+  var i int
+	for i=1; i<=10;i++{
+		fmt.Println(i)
+		if i==5{
+			break
+		}
+	}
+}
+```
+
+### 函数
+
+```go
+// 函数定义
+// func 函数名(函数参数列表) {
+}
+
+// 不定参函数
+func test(args ...int) {
+  fmt.println(args)
+  for i=0; i<=len(args); i++ {
+    fmt.println(args[i])
+  }
+}
+```
+
+### 函数类型
+
+```
+package main
+
+import "fmt"
+
+type FUNCTYPE1 func()
+type FUNCTYPE2 func(int, int)
+type FUNCTYPE3 func(int, int)int
+
+func main() {
+	//定义函数类型变量
+	var f FUNCTYPE1
+}
+```
+
+
+
+## 匿名函数
+
+```Go
+// 在函数内部定义一个函数
+package main
+import "fmt"
+
+func main{
+  a:=10
+  b:=20
+
+  func (a int, b int){
+    fmt.Println(a+b)
+  }(a,b)
+}
+```
+
+### 数组置换
+
+```go
+package main
+import "fmt"
+
+func main {
+	array := [10]int{1,2,3,4,5,6,7,8,9,10}
+
+	start:=0
+	end:=len(array) - 1
+
+	for {
+		if (start>end) {
+			break
+		}
+		array[start],array[end]=array[end],array[start]
+		start++
+		end--
+	}
+	fmt.Println(arr)
+}
+```
+
+
+
+## 闭包
+
+```go
+package main
+import "fmt"
+
+func test2() func() int{
+  var a int
+  return func() int{
+    a++
+   	return a
+  }
+}
+
+func main{
+  f:=test2()
+  for i:=0,i<=10,i++{
+    fmt.Println(f())
+  }
+
+}
+```
+
+### Print,printf,println
+
+- [`Printf`](https://golang.org/pkg/fmt/#Printf) - "Print Formatter" this function allows you to format numbers, variables and strings into the first string parameter you give it
+- [`Print`](https://golang.org/pkg/fmt/#Print) - "Print" This cannot format anything, it simply takes a string and print it
+- [`Println`](https://golang.org/pkg/fmt/#Println) - "Print Line" same thing as `Printf()` however it will append a *newline character*`\n`
+
+
+
+## 匿名字段
+
+嵌入字段
+
+结构体中引用了另外一个结构体
+
+## 同名字段
+
+

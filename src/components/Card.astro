@@ -25,11 +25,11 @@ const { href, title, description , tech, heroImage} = Astro.props;
 						(t, i) => {
 							if (i < 5) {
 								return (
-									<span class="badge badge-xs md:badge-lg badge-primary">{t}</span>
+									<span class="badge badge-xs md:badge-lg badge-neutral">{t}</span>
 								)
 							} else if (i == 5) {
 								return (
-									<span class="badge badge-xs md:badge-lg badge-primary">...</span>
+									<span class="badge badge-xs md:badge-lg badge-neutral">...</span>
 								)
 							}
 

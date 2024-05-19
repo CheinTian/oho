@@ -13,7 +13,7 @@ const posts = (await getCollection('blog')).sort(
 ---
 
 <!doctype html>
-<html data-theme="cupcake">
+<html  >
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 		<style>
@@ -21,7 +21,7 @@ const posts = (await getCollection('blog')).sort(
 			}
 			.title {
 				margin: 0;
-				color: rgb(var(--black));
+				//color: rgb(var(--black));
 				line-height: 1;
 			}
 			.date {
@@ -49,7 +49,7 @@ const posts = (await getCollection('blog')).sort(
 											<h3 class="title text-xs md:text-xl sm:text-sm">{post.data.title}</h3>
 											{
 												post.data.tags?.map((tag) => (
-													<span class="badge badge-outline badge-sm mr-2 mt-2">{tag}</span>
+													<span class="badge badge-neutral badge-xs md:badge-sm mr-2 mt-2">{tag}</span>
 												))
 											}
 											<span class="date text-xs float-right hidden sm:inline">
