@@ -15,6 +15,23 @@ const post = Astro.props;
 const { Content } = await post.render();
 ---
 
+<script>
+
+	import FlexSearch from 'flexsearch';
+
+	const document = new FlexSearch.Document({
+		worker: true,
+	});
+
+	document.add({
+		...post.data,
+		link: `/blog/${post.slug}/`,
+	})
+	document.search("gitlab")
+	console.log(document.search("gitlab"))
+
+</script>
+
 <BlogPost {...post.data}>
 	<Content />
 </BlogPost>
