@@ -9,18 +9,34 @@ export default {
 			xl: '1440px',
 		},
 		colors: {
-			'blue': '#1fb6ff',
-			'purple': '#7e5bef',
-			'pink': '#ff49db',
-			'orange': '#ff7849',
-			'green': '#13ce66',
-			'yellow': '#ffc82c',
-			'gray-dark': '#273444',
-			'gray': '#8492a6',
-			'gray-light': '#d3dce6',
+			primary: {
+				DEFAULT: '#3B82F6',
+				light: '#60A5FA',
+				dark: '#2563EB'
+			},
+			secondary: {
+				DEFAULT: '#1E293B',
+				light: '#334155',
+				dark: '#0F172A'
+			},
+			accent: {
+				DEFAULT: '#F59E0B',
+				light: '#FBBF24',
+				dark: '#D97706'
+			},
+			neutral: {
+				DEFAULT: '#f8fafc',
+				light: '#ffffff',
+				dark: '#f1f5f9'
+			},
+			text: {
+				primary: '#1E293B',
+				secondary: '#475569',
+				light: '#ffffff'
+			}
 		},
 		fontFamily: {
-			sans: ['Graphik', 'sans-serif'],
+			sans: ['Atkinson', 'sans-serif'],
 			serif: ['Merriweather', 'serif'],
 		},
 		extend: {
@@ -32,49 +48,40 @@ export default {
 				'4xl': '2rem',
 			},
 			boxShadow: {
-				'3xl': '0 35px 60px -15px rgba(0, 0, 0, 0.3)',
+				'soft': '0 4px 6px rgba(0, 0, 0, 0.04)',
+				'medium': '0 6px 12px rgba(0, 0, 0, 0.06)',
+				'strong': '0 8px 16px rgba(0, 0, 0, 0.08)',
 			}
-
 		}
 	},
 	daisyui: {
 		themes: [
 			{
 				light: {
-					"primary": "#89e1a8",
-					"secondary": "#603f64",
-					"accent": "#fa8900",
-					"neutral": "#3fbbbb",
+					"primary": "#449eff",
+					"secondary": "#5b4137",
+					"accent": "#ff9e44",
+					"neutral": "#fafafa",
 					"base-100": "#ffffff",
-					"info": "#d8ff9d",
-					"success": "#62a300",
-					"warning": "#ffe66b",
-					"error": "#ff886b",
+					"info": "#3b82f6",
+					"success": "#10b981",
+					"warning": "#f59e0b",
+					"error": "#ef4444",
 				},
 				dark: {
-					"primary": "#89e1a8",
-					"secondary": "#603f64",
-					"accent": "#fa8900",
-					"neutral": "#3fbbbb",
-					"base-100": "#222222",
-					"info": "#d8ff9d",
-					"success": "#62a300",
-					"warning": "#ffe66b",
-					"error": "#ff886b",
+					"primary": "#449eff",
+					"secondary": "#5b4137",
+					"accent": "#ff9e44",
+					"neutral": "#151515",
+					"base-100": "#0a0a0a",
+					"info": "#3b82f6",
+					"success": "#10b981",
+					"warning": "#f59e0b",
+					"error": "#ef4444",
 				}
 			}
 		],
-		// themes: ["light", "black", "luxury"],
-		// themes: true, // false: only light + dark | true: all themes | array: specific themes like this ["light", "dark", "cupcake"]
-		// darkTheme: "dark", // name of one of the included themes for dark mode
-		base: true, // applies background color and foreground color for root element by default
-		// styled: true, // include daisyUI colors and design decisions for all components
-		// utils: true, // adds responsive and modifier utility classes
-		// prefix: "", // prefix for daisyUI classnames (components, modifiers and responsive class names. Not colors)
-		// logs: true, // Shows info about daisyUI version and used config in the console when building your CSS
-		// themeRoot: ":root",
+		base: true,
 	},
-
 	plugins: [require("daisyui")],
-
 }

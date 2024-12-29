@@ -1,7 +1,7 @@
 ---
 
 ---
-<div class="flex shadow-3xl m-auto w-fit h-auto left-0 rounded-4xl">
+<div class="nav-bar flex shadow-3xl m-auto w-fit h-auto fixed left-1/2 -translate-x-1/2 rounded-4xl top-4 transition-transform duration-300">
     <div class="flex flex-row items-center">
         <ul class="menu menu-horizontal rounded-box">
             <li>
@@ -76,4 +76,22 @@
     import { themeChange } from "theme-change";
     themeChange();
     // 👆 you could import the CDN directly instead of these two lines
+
+    // 添加滚动监听逻辑
+    let lastScrollY = window.scrollY;
+    const nav = document.querySelector('.nav-bar');
+
+    window.addEventListener('scroll', () => {
+        const currentScrollY = window.scrollY;
+        
+        if (currentScrollY > lastScrollY) {
+            // 向下滚动，隐藏导航栏
+            nav?.classList.add('-translate-y-20');
+        } else {
+            // 向上滚动，显示导航栏
+            nav?.classList.remove('-translate-y-20');
+        }
+        
+        lastScrollY = currentScrollY;
+    });
 </script>
