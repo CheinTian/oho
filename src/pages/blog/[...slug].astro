@@ -24,8 +24,8 @@ const { Content } = await post.render();
 	});
 
 	document.add({
-		...post.data,
-		link: `/blog/${post.slug}/`,
+		...Astro.props.data,
+		link: `/blog/${Astro.props.slug}/`,
 	})
 	document.search("gitlab")
 	console.log(document.search("gitlab"))
